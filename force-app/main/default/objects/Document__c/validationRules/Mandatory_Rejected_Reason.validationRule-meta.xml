@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mandatory_Rejected_Reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISNEW() || ISCHANGED(Status__c) || ISCHANGED( Rejected_Reason__c )) &amp;&amp;
+ISPICKVAL(Status__c, &apos;Rejected&apos;) &amp;&amp;
+ISBLANK(TEXT(Rejected_Reason__c))</errorConditionFormula>
+    <errorDisplayField>Rejected_Reason__c</errorDisplayField>
+    <errorMessage>Rejected Reason is Mandatory</errorMessage>
+</ValidationRule>

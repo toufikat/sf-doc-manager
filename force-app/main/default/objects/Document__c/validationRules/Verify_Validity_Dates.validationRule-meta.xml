@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Verify_Validity_Dates</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISNEW() || ISCHANGED( ValidityStartDate__c ) || ISCHANGED(  ValidityEndDate__c ) ) &amp;&amp; 
+NOT(ISBLANK(ValidityStartDate__c )) &amp;&amp;
+NOT(ISBLANK(ValidityEndDate__c )) &amp;&amp;
+( ValidityEndDate__c &lt; ValidityStartDate__c )</errorConditionFormula>
+    <errorMessage>Validity start date must be prior to validity end date.</errorMessage>
+</ValidationRule>

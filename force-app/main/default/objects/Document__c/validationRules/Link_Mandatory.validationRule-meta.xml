@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Link_Mandatory</fullName>
+    <active>false</active>
+    <errorConditionFormula>(ISNEW() || ISCHANGED(Status__c) || ISCHANGED(Link__c)) &amp;&amp; 
+NOT(ISBLANK(TEXT(Status__c))) &amp;&amp;
+NOT(ISPICKVAL(Status__c, &apos;Missing&apos;)) &amp;&amp;
+ISBLANK(Link__c)</errorConditionFormula>
+    <errorDisplayField>Link__c</errorDisplayField>
+    <errorMessage>Link is mandatory.</errorMessage>
+</ValidationRule>
